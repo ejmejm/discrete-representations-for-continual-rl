@@ -2,9 +2,11 @@
 
 This directory contains both code and data used to produce the work for the paper "[Harnessing Discrete Representations for Continual Reinforcement Learning](https://arxiv.org/abs/2312.01203)".
 
-Paper link: [https://arxiv.org/abs/2312.01203](https://arxiv.org/abs/2312.01203)
-Paper authors: Edan Meyer, Adam White, Marlos Machado
-Code author: Edan Meyer
+**Paper link:** [https://arxiv.org/abs/2312.01203](https://arxiv.org/abs/2312.01203)
+
+**Paper authors:** Edan Meyer, Adam White, Marlos Machado
+
+**Code author:** Edan Meyer
 
 ## Code Structure
 
