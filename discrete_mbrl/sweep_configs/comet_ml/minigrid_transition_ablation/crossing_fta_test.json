@@ -1,0 +1,62 @@
+{
+  "name": "Explore Right Crossing | Continuous | FTA AE",
+
+  "project": "discrete_mbrl-minigrid_trans_ablation_test",
+
+  "command": "python full_train_eval.py",
+
+  "algorithm": "grid",
+
+  "spec": {
+    "metric": "explore_right_state_distrib_kl_div",
+    "objective": "minimize",
+    "retryAssignLimit": 4
+  },
+
+  "trials": 3,
+
+  "parameters": {
+    "all_data": True,
+    "no_load": True,
+    "comet_ml": True,
+    "exact_comp": True,
+    "log_freq": 500,
+    "eval_unroll_steps": 30,
+    "batch_size": 512,
+    "embedding_dim": 64,
+    "eval_batch_size": 128,
+    "learning_rate": 0.0002,
+    "n_preload": 0,
+    "n_train_unroll": 4,
+    "rl_train_steps": 0,
+    "trans_epochs": 35,
+    "checkpoint_freq": 9,
+    "epochs": 20,
+    "ae_model_type": "fta_ae",
+    "trans_model_type": "continuous",
+
+    "env_name": "minigrid-crossing-stochastic",
+    "eval_policies": "explore_right",
+    "stochastic": "categorical",
+
+    "trans_hidden": {
+      "type": "discrete",
+      "values": [16, 32, 64, 128, 256, 512, 1024]
+    },
+
+    "latent_dim": {
+      "type": "discrete",
+      "values": [64, 256, 1024]
+    },
+    "fta_tiles": {
+      "type": "discrete",
+      "values": [8, 16, 32],
+      "dependents": {
+        "fta_eta": {
+          "type": "discrete",
+          "values": [0.5, 0.25, 0.125]
+        }
+      }
+    }
+  }
+}

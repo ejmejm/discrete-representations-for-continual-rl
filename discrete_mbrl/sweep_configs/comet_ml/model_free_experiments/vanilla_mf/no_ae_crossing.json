@@ -1,0 +1,42 @@
+{
+  "name": "Crossing | No AE | Best",
+
+  "project": "model-free-minigrid",
+
+  "command": "python model_free/train.py",
+
+  "algorithm": "grid",
+
+  "spec": {
+    "metric": "reward",
+    "objective": "maximize",
+    "retryAssignLimit": 4
+  },
+
+  "trials": 30,
+
+  "parameters": {
+    "comet_ml": True,
+    "ae_recon_loss": False,
+    "ae_er_train": False,
+    "e2e_loss": True,
+    "device": "cuda",
+    "log_freq": 2500,
+    "learning_rate": 0.0003,
+    "batch_size": 256,
+    "mf_steps": 800000,
+    "embedding_dim": 64,
+    "env_max_steps": 400,
+    "n_ae_updates": 8,
+    "ppo_batch_size": 64,
+    "ppo_value_coef": 0.5,
+    "ppo_iters": 10,
+    "ppo_clip": 0.2,
+
+    "ae_model_type": "ae",
+    "latent_dim": 256,
+
+    "env_name": "minigrid-crossing-stochastic",
+    "stochastic": "categorical"
+  }
+}

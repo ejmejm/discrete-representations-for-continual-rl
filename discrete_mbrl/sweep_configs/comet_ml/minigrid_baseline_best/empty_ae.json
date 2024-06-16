@@ -1,0 +1,45 @@
+{
+  "name": "Random Empty | Continuous | AE",
+
+  "project": "discrete_mbrl-minigrid_baseline_best",
+
+  "command": "python full_train_eval.py",
+
+  "algorithm": "grid",
+
+  "spec": {
+    "metric": "random_state_distrib_kl_div",
+    "objective": "minimize",
+    "retryAssignLimit": 2
+  },
+
+  "trials": 30,
+
+  "parameters": {
+    "all_data": True,
+    "no_load": True,
+    "comet_ml": True,
+    "exact_comp": True,
+    "log_freq": 500,
+    "eval_unroll_steps": 30,
+    "batch_size": 512,
+    "embedding_dim": 64,
+    "eval_batch_size": 128,
+    "learning_rate": 0.0002,
+    "n_preload": 0,
+    "n_train_unroll": 4,
+    "rl_train_steps": 0,
+    "trans_epochs": 30,
+    "checkpoint_freq": 9,
+    "epochs": 20,
+    "trans_hidden": 64,
+    "ae_model_type": "ae",
+    "trans_model_type": "continuous",
+
+    "env_name": "MiniGrid-Empty-6x6-v0-fullobs",
+    "eval_policies": "random",
+    "stochastic": "simple",
+
+    "latent_dim": 64
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "Explore Right Crossing | Discrete | Hard VQVAE AE",
+
+  "project": "discrete_mbrl-soft_vqvae_best",
+
+  "command": "python full_train_eval.py",
+
+  "algorithm": "grid",
+
+  "spec": {
+    "metric": "explore_right_state_distrib_kl_div",
+    "objective": "minimize",
+    "retryAssignLimit": 4
+  },
+
+  "trials": 30,
+
+  "parameters": {
+    "all_data": True,
+    "no_load": True,
+    "comet_ml": True,
+    "exact_comp": True,
+    "log_state_reprs": True,
+    "log_freq": 500,
+    "eval_unroll_steps": 30,
+    "batch_size": 512,
+    "embedding_dim": 64,
+    "eval_batch_size": 128,
+    "learning_rate": 0.0002,
+    "n_preload": 0,
+    "n_train_unroll": 4,
+    "rl_train_steps": 0,
+    "trans_epochs": 1,
+    "checkpoint_freq": 9,
+    "epochs": 1,
+    "trans_hidden": 32,
+    "ae_model_type": "vqvae",
+    "trans_model_type": "discrete",
+
+    "env_name": "minigrid-crossing-stochastic",
+    "eval_policies": "explore_right",
+    "stochastic": "categorical",
+
+    "codebook_size": 64,
+    "filter_size": 6
+  }
+}

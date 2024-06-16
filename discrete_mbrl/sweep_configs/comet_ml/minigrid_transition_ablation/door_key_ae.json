@@ -1,0 +1,51 @@
+{
+  "name": "Goal Door Key | Continuous | AE",
+
+  "project": "discrete_mbrl-minigrid_trans_ablation",
+
+  "command": "python full_train_eval.py",
+
+  "algorithm": "grid",
+
+  "spec": {
+    "metric": "goal_state_distrib_kl_div",
+    "objective": "minimize",
+    "retryAssignLimit": 4
+  },
+
+  "trials": 4,
+
+  "parameters": {
+    "all_data": True,
+    "no_load": True,
+    "comet_ml": True,
+    "exact_comp": True,
+    "log_freq": 500,
+    "eval_unroll_steps": 30,
+    "batch_size": 512,
+    "embedding_dim": 64,
+    "eval_batch_size": 128,
+    "learning_rate": 0.0002,
+    "n_preload": 0,
+    "n_train_unroll": 4,
+    "rl_train_steps": 0,
+    "trans_epochs": 35,
+    "checkpoint_freq": 9,
+    "epochs": 20,
+    "ae_model_type": "ae",
+    "trans_model_type": "continuous",
+
+    "env_name": "minigrid-door-key-stochastic",
+    "eval_policies": "goal",
+    "stochastic": "categorical",
+
+    "trans_hidden": {
+      "type": "discrete",
+      "values": [16, 32, 64, 128, 256, 512, 1024]
+    },
+    "latent_dim": {
+      "type": "discrete",
+      "values": [16, 64, 256, 1024]
+    }
+  }
+}

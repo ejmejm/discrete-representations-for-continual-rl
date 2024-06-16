@@ -1,0 +1,51 @@
+{
+  "name": "Changing Crossing | AE | Ablation",
+
+  "project": "discrete_mbrl-mf_chainging_ablation_test",
+
+  "command": "python model_free/train.py",
+
+  "algorithm": "grid",
+
+  "spec": {
+    "metric": "reward",
+    "objective": "maximize",
+    "retryAssignLimit": 4
+  },
+
+  "trials": 4,
+
+  "parameters": {
+    "comet_ml": True,
+    "ae_recon_loss": True,
+    "ae_er_train": True,
+    "device": "cpu",
+    "log_freq": 200,
+    "learning_rate": 0.0003,
+    "batch_size": 32,
+    "mf_steps": 4000,
+    "embedding_dim": 64,
+    "env_change_freq": 500,
+    "n_ae_updates": 2,
+    "ppo_batch_size": 16,
+
+    "ae_model_type": "ae",
+    "latent_dim": 1024,
+
+    "env_name": "minigrid-crossing-stochastic",
+    "stochastic": "categorical",
+
+    "ppo_iters": {
+      "type": "discrete",
+      "values": [10, 20, 30, 40]
+    },
+    "ppo_clip": {
+      "type": "discrete",
+      "values": [0.1, 0.2, 0.3]
+    },
+    "ppo_value_coef": {
+      "type": "discrete",
+      "values": [0.25, 0.5, 0.75, 1.0]
+    }
+  }
+}
